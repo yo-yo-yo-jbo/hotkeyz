@@ -19,3 +19,13 @@ To solve that problem, I perform the ol' switcheroo:
 - Re-registering the hotkey again by calling [RegisterHotKey](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-registerhotkey) one more time.
 
 While I'd never put this in "production code", the rate of typing makes it barely noticable, so this works well.
+
+The other thing I had to take care of is not blocking - I intend on keylogging for a user-defined amount of milliseconds, so I use the [PeekMessage](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-peekmessagea) WinAPI to not block - I do poll if there are no messages to be processed. Note that I have to perform it from my own thread since the `WM_HOTKEY` Window Messages are going to only arrive to my thread message queue, as stated in MSDN.
+
+## The code
+I ended up coding a single file `Hotkeyz.c`, but I uploaded the Visual Studio 2019 project here.  
+You can easily re-implement in PowerShell or compile it as a DLL instead of an executable. However, I bear no responsibility on how this is going to be used.
+
+Stay tuned,
+
+Jonathan Bar Or
