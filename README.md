@@ -1,6 +1,7 @@
 # Hotkey-based keylogger for Windows
 So, I saw a bunch of articles specifying different methods for keylogging (such as [this](https://www.elastic.co/security-labs/protecting-your-devices-from-information-theft-keylogger-protection-jp)) and I never found one that I used internally in the past.  
 I thought this could be a nice opportunity to share a (not so) novel keylogging technique, based on Hotkeys!
+![Hotkeyz](logo.png)
 
 ## What are hotkeys?
 I decided to use the [RegisterHotKey](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-registerhotkey) WinAPI to register "hotkeys" for all across the keyboard.  
